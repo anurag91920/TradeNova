@@ -1,0 +1,165 @@
+# ============================================
+# Dependencies
+# ============================================
+node_modules/
+jspm_packages/
+bower_components/
+
+# ============================================
+# Environment Variables
+# ============================================
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+.env.*.local
+!.env.example
+
+# ============================================
+# Logs
+# ============================================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+.pm2/
+
+# ============================================
+# Database
+# ============================================
+*.sqlite
+*.sqlite3
+*.db
+*.sql
+*.sql.gz
+dump.rdb
+
+# ============================================
+# Build Output
+# ============================================
+dist/
+build/
+out/
+.next/
+.nuxt/
+
+# ============================================
+# Test Coverage
+# ============================================
+coverage/
+.nyc_output/
+*.lcov
+.coveralls.yml
+
+# ============================================
+# Cache
+# ============================================
+.cache/
+.parcel-cache/
+.eslintcache
+.stylelintcache
+.npm/
+.yarn/
+.pnpm-store/
+
+# ============================================
+# Runtime Data
+# ============================================
+pids/
+*.pid
+*.seed
+*.pid.lock
+lib-cov/
+
+# ============================================
+# IDE / Editor
+# ============================================
+.vscode/*
+!.vscode/settings.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+*.swn
+*~
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.tmproj
+
+# ============================================
+# OS Generated
+# ============================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# ============================================
+# Uploads / Temp
+# ============================================
+uploads/
+public/uploads/
+temp/
+tmp/
+storage/
+
+# ============================================
+# Security / Secrets
+# ============================================
+*.pem
+*.key
+*.cert
+*.crt
+*.csr
+*.p12
+*.pfx
+secrets/
+config/secrets.json
+
+# ============================================
+# Docker
+# ============================================
+docker-compose.override.yml
+
+# ============================================
+# Misc
+# ============================================
+*.bak
+*.backup
+*.orig
+*.rej
+.eslintcache
+.sequelizerc.local
+
+# ============================================
+# Sequelize
+# ============================================
+src/migrations/.backup/
+src/seeders/.backup/
+
+# ============================================
+# Redis
+# ============================================
+dump.rdb
+appendonly.aof
+
+# ============================================
+# Backup Files
+# ============================================
+*.tar
+*.tar.gz
+*.zip
+!package-lock.json
