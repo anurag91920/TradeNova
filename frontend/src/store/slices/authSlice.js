@@ -1,19 +1,19 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
 import toast from 'react-hot-toast';
-import { setAuthToken } from '../../utils/api';
+import api, { setAuthToken } from '../../utils/api';
 
-const API = '/api/auth';
+// ✅ अब हम 'api' use करेंगे, जो already baseURL set कर चुका है
+// सिर्फ relative path दें, '/auth/login' (बिना '/api' prefix के क्योंकि baseURL में '/api' शामिल है)
 
 export const login = createAsyncThunk('auth/login', async (credentials, { rejectWithValue }) => {
   try {
-    const { data } = await axios.post(`${API}/login`, credentials);
+    const { data } = await api.post('/auth/login', credentials);
     const { accessToken, refreshToken, user } = data.data;
-    
+
     localStorage.setItem('accessToken', accessToken);
     localStorage.setItem('refreshToken', refreshToken);
     setAuthToken(accessToken);
-    
+
     toast.success(`Welcome back, ${user.username}!`);
     return { user, accessToken, refreshToken };
   } catch (error) {
@@ -25,13 +25,13 @@ export const login = createAsyncThunk('auth/login', async (credentials, { reject
 
 export const register = createAsyncThunk('auth/register', async (userData, { rejectWithValue }) => {
   try {
-    const { data } = await axios.post(`${API}/register`, userData);
+    const { data } = await api.post('/auth/register', userData);
     const { accessToken, refreshToken, user } = data.data;
-    
+
     localStorage.setItem('accessToken', accessToken);
     localStorage.setItem('refreshToken', refreshToken);
     setAuthToken(accessToken);
-    
+
     toast.success('Account created successfully!');
     return { user, accessToken, refreshToken };
   } catch (error) {
@@ -43,7 +43,7 @@ export const register = createAsyncThunk('auth/register', async (userData, { rej
 
 export const logout = createAsyncThunk('auth/logout', async () => {
   try {
-    await axios.post(`${API}/logout`);
+    await api.post('/auth/logout');
   } catch (e) {
     // ignore
   }
@@ -56,10 +56,10 @@ export const logout = createAsyncThunk('auth/logout', async () => {
 export const checkAuth = createAsyncThunk('auth/checkAuth', async (_, { rejectWithValue }) => {
   const token = localStorage.getItem('accessToken');
   if (!token) return rejectWithValue('No token');
-  
+
   setAuthToken(token);
   try {
-    const { data } = await axios.get(`${API}/profile`);
+    const { data } = await api.get('/auth/profile');
     return { user: data.data };
   } catch (error) {
     localStorage.removeItem('accessToken');
