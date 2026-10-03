@@ -28,18 +28,20 @@ const connectDB = async () => {
       // SSH टनल बनाने के लिए sshTunnel.js को import करें
       const { createSSHTunnel } = await import('./sshTunnel.js');
       await createSSHTunnel();
-      console.log('✅ SSH tunnel ready');
+      console.log(' SSH tunnel ready');
     }
     
     await sequelize.authenticate();
-    console.log('✅ MySQL Connected successfully');
+    console.log(' MySQL Connected successfully');
     
-    if (process.env.NODE_ENV === 'development') {
-      await sequelize.sync({ alter: true });
-      console.log('✅ Database synced');
-    }
+    // TEMPORARY FIX: Production में भी sync करें
+    // यह missing tables और columns automatically create कर देगा
+    //  Registration working होने के बाद इसे हटा दें या condition development पर वापस कर दें
+    await sequelize.sync({ alter: true });
+    console.log('Database schema synced (tables created/updated)');
+    
   } catch (error) {
-    console.error('❌ MySQL Connection Error:', error.message);
+    console.error('MySQL Connection Error:', error.message);
     process.exit(1);
   }
 };
