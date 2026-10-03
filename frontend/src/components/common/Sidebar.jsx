@@ -9,12 +9,12 @@ import { useDispatch } from 'react-redux';
 import { logout } from '../../store/slices/authSlice';
 
 const navItems = [
-  { to: '/dashboard', icon: FiHome, label: 'Dashboard' },
-  { to: '/trading', icon: FiTrendingUp, label: 'Trading' },
-  { to: '/wallet', icon: FiCreditCard, label: 'Wallet' },
-  { to: '/orders', icon: FiList, label: 'Orders' },
-  { to: '/analytics', icon: FiBarChart2, label: 'Analytics' },
-  { to: '/settings', icon: FiSettings, label: 'Settings' },
+  { to: '/app/dashboard', icon: FiHome, label: 'Dashboard' },
+  { to: '/app/trading', icon: FiTrendingUp, label: 'Trading' },
+  { to: '/app/wallet', icon: FiCreditCard, label: 'Wallet' },
+  { to: '/app/orders', icon: FiList, label: 'Orders' },
+  { to: '/app/analytics', icon: FiBarChart2, label: 'Analytics' },
+  { to: '/app/settings', icon: FiSettings, label: 'Settings' },
 ];
 
 const Sidebar = () => {

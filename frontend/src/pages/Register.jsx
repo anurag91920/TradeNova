@@ -24,7 +24,7 @@ const Register = () => {
     }
     const result = await dispatch(register(form));
     if (register.fulfilled.match(result)) {
-      navigate('/dashboard');
+      navigate('/app/dashboard');
     }
   };
 
