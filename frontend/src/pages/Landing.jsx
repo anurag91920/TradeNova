@@ -6,6 +6,12 @@ import {
   FiTrendingUp, FiShield, FiZap, FiBarChart2,
   FiArrowRight, FiCheck, FiActivity, FiGlobe
 } from 'react-icons/fi';
+import PricingSection from '../components/landing/PricingSection';
+import TestimonialsSection from '../components/landing/TestimonialsSection';
+import FAQSection from '../components/landing/FAQSection';
+import NewsletterSection from '../components/landing/NewsletterSection';
+
+
 
 const Landing = () => {
   const { isAuthenticated } = useSelector((state) => state.auth);
@@ -70,6 +76,7 @@ const Landing = () => {
             <a href="#features" className="text-slate-300 hover:text-white transition-colors">Features</a>
             <a href="#markets" className="text-slate-300 hover:text-white transition-colors">Markets</a>
             <a href="#pricing" className="text-slate-300 hover:text-white transition-colors">Pricing</a>
+            <a href="#faq" className="text-slate-300 hover:text-white transition-colors">FAQ</a>
           </div>
 
           <div className="flex items-center gap-3">
@@ -201,9 +208,8 @@ const Landing = () => {
                 </div>
                 <div className="flex items-end justify-between">
                   <div className="text-2xl font-bold text-slate-100">{crypto.price}</div>
-                  <div className={`text-sm font-medium ${
-                    crypto.change.startsWith('+') ? 'text-success-400' : 'text-danger-400'
-                  }`}>
+                  <div className={`text-sm font-medium ${crypto.change.startsWith('+') ? 'text-success-400' : 'text-danger-400'
+                    }`}>
                     {crypto.change}
                   </div>
                 </div>
@@ -328,6 +334,23 @@ const Landing = () => {
           </div>
         </div>
       </section>
+
+      {/* ... पिछले sections ... */}
+
+      {/* WHY CHOOSE US — वैसा ही रहेगा */}
+      <section>...</section>
+
+      {/* ✅ NEW: Pricing Section */}
+      <PricingSection />
+
+      {/* ✅ NEW: Testimonials Section */}
+      <TestimonialsSection />
+
+      {/* ✅ NEW: FAQ Section */}
+      <FAQSection />
+
+      {/* ✅ NEW: Newsletter Section */}
+      <NewsletterSection />
 
       {/* ==================== FOOTER ==================== */}
       <footer className="border-t border-slate-800 py-12 px-6">

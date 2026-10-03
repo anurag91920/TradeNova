@@ -30,12 +30,12 @@ function App() {
 
   return (
     <Routes>
-      {/* ✅ Public Routes */}
+      {/*  Public Routes */}
       <Route path="/" element={<Landing />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
 
-      {/* ✅ Protected Routes — /app prefix */}
+      {/*  Protected Routes — /app prefix */}
       <Route
         path="/app"
         element={
