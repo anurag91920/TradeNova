@@ -268,29 +268,6 @@ npm install
 cp .env.example .env
 ```
 
-Edit `.env` with your credentials:
-
-```env
-NODE_ENV=development
-PORT=5000
-
-# MySQL
-DB_HOST=localhost
-DB_PORT=3306
-DB_NAME=tradenova
-DB_USER=root
-DB_PASSWORD=your_password
-
-# JWT
-JWT_SECRET=your_super_secret_key_minimum_32_chars
-JWT_REFRESH_SECRET=your_refresh_secret_minimum_32_chars
-JWT_EXPIRES_IN=15m
-JWT_REFRESH_EXPIRES_IN=7d
-
-# Client
-CLIENT_URL=http://localhost:3000
-```
-
 Create database:
 
 ```bash
