@@ -163,3 +163,6 @@ appendonly.aof
 *.tar.gz
 *.zip
 !package-lock.json
+
+
+src/config/ca.pem
